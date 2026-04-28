@@ -1,0 +1,25 @@
+import Nav from '@/components/Nav'
+import Hero from '@/components/Hero'
+import TrustBar from '@/components/TrustBar'
+import Agents from '@/components/Agents'
+import HowItWorks from '@/components/HowItWorks'
+import CaseStudy from '@/components/CaseStudy'
+import BottomCTA from '@/components/BottomCTA'
+import Footer from '@/components/Footer'
+
+export default function Home() {
+  return (
+    <>
+      <Nav />
+      <main>
+        <Hero />
+        <TrustBar />
+        <Agents />
+        <HowItWorks />
+        <CaseStudy />
+        <BottomCTA />
+      </main>
+      <Footer />
+    </>
+  )
+}
