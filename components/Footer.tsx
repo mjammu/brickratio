@@ -25,7 +25,7 @@ export default function Footer() {
       >
         {/* Logo */}
         <Link href="/" style={{ fontFamily: 'var(--font-serif), serif', fontSize: 18, color: 'var(--text)', textDecoration: 'none' }}>
-          Brick Ratio<span style={{ fontStyle: 'italic', opacity: 0.4 }}>.</span>
+          Brick Ratio
         </Link>
 
         {/* Links */}

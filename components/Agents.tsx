@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { CALENDLY_URL } from '@/lib/constants'
+import { useScrollReveal } from '@/lib/useScrollReveal'
 
 const agents = [
   {
@@ -9,10 +10,10 @@ const agents = [
     tagline: 'Unified company knowledge',
     h3: 'Company Brain',
     description:
-      'A searchable memory layer built across the tools and data your company already runs on. Your team asks questions and gets answers with full context — instantly.',
+      'A searchable memory layer built across the tools and data your company already runs on. Your team asks questions and gets answers with full context, instantly.',
     bullets: [
       'Connects meetings, docs, email, Slack, CRM, and more into one searchable layer',
-      'Custom connectors for internal systems — SQL, data warehouses, internal APIs',
+      'Custom connectors for internal systems: SQL, data warehouses, internal APIs',
       'Answers cite back to original sources so nothing gets lost in translation',
       'New team members get up to speed in days, not months',
     ],
@@ -22,7 +23,7 @@ const agents = [
     tagline: 'Organic content at scale',
     h3: 'SEO Agent',
     description:
-      'Research, write, and publish SEO content on a steady cadence — without a content team. Built around your target keywords, voice, and publishing workflow.',
+      'Research, write, and publish SEO content on a steady cadence without a content team. Built around your target keywords, voice, and publishing workflow.',
     bullets: [
       'Automated keyword research tied to your ICP and competitive gaps',
       'Drafts optimized articles at scale, reviewed before they go live',
@@ -37,10 +38,10 @@ const agents = [
     description:
       'A daily digest of qualified prospects, researched and scored for your ideal customer profile. Delivered to your inbox or CRM before your team starts their day.',
     bullets: [
-      'Pulls from live signals — job postings, funding, news, hiring patterns',
+      'Pulls from live signals: job postings, funding, news, hiring patterns',
       'Scores and filters against your ICP criteria automatically',
       'Outputs to Slack, email digest, or directly into your CRM',
-      'Zero manual research — your team shows up with a prioritized list',
+      'Zero manual research. Your team shows up with a prioritized list',
     ],
   },
   {
@@ -50,7 +51,7 @@ const agents = [
     description:
       'A purpose-built AI system for the workflow no off-the-shelf tool can handle. We scope it with you, build it fast, and stay on for improvements.',
     bullets: [
-      'Works from your existing stack — no rip-and-replace required',
+      'Works from your existing stack, no rip-and-replace required',
       'Built using battle-tested agent frameworks, not experimental prototypes',
       'Delivered with documentation so your team can own it long-term',
       'Ongoing support included for the first 30 days post-launch',
@@ -61,6 +62,8 @@ const agents = [
 export default function Agents() {
   const [active, setActive] = useState(0)
   const agent = agents[active]
+  const { ref: headerRef, visible: headerVisible } = useScrollReveal()
+  const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.1)
 
   return (
     <section
@@ -68,7 +71,16 @@ export default function Agents() {
       style={{ padding: '100px 32px', maxWidth: 1100, margin: '0 auto' }}
     >
       {/* Section header */}
-      <div style={{ marginBottom: 48 }}>
+      <div
+        ref={headerRef as React.RefObject<HTMLDivElement>}
+        style={{
+          marginBottom: 48,
+          textAlign: 'center',
+          opacity: headerVisible ? 1 : 0,
+          transform: headerVisible ? 'translateY(0)' : 'translateY(24px)',
+          transition: 'opacity 0.6s ease, transform 0.6s ease',
+        }}
+      >
         <p
           style={{
             fontSize: 11,
@@ -93,7 +105,7 @@ export default function Agents() {
         >
           AI systems that run parts of <em>your business.</em>
         </h2>
-        <p style={{ fontSize: 17, color: 'var(--muted)', maxWidth: 480 }}>
+        <p style={{ fontSize: 17, color: 'var(--muted)', maxWidth: 480, margin: '0 auto' }}>
           Pick what your team needs. Most engagements ship in under two weeks.
         </p>
       </div>
@@ -124,12 +136,16 @@ export default function Agents() {
 
       {/* Desktop: two-column grid */}
       <div
+        ref={gridRef as React.RefObject<HTMLDivElement>}
         style={{
           border: '1px solid var(--border)',
           borderRadius: 20,
           overflow: 'hidden',
           display: 'grid',
           gridTemplateColumns: '280px 1fr',
+          opacity: gridVisible ? 1 : 0,
+          transform: gridVisible ? 'translateY(0)' : 'translateY(32px)',
+          transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
         }}
         className="agents-grid"
       >

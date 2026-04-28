@@ -1,3 +1,7 @@
+'use client'
+
+import { useScrollReveal } from '@/lib/useScrollReveal'
+
 const stats = [
   { value: '100%', label: 'Of receipts captured automatically' },
   { value: '~40h', label: 'Saved per month in manual entry' },
@@ -8,9 +12,12 @@ const stats = [
 const tags = ['Receipt Agent', 'Google Sheets', 'Automation']
 
 export default function CaseStudy() {
+  const { ref, visible } = useScrollReveal(0.1)
+
   return (
     <section style={{ padding: '0 32px 100px', maxWidth: 1100, margin: '0 auto' }}>
       <div
+        ref={ref as React.RefObject<HTMLDivElement>}
         style={{
           background: 'var(--text)',
           borderRadius: 24,
@@ -19,6 +26,9 @@ export default function CaseStudy() {
           gridTemplateColumns: '1fr 1fr',
           gap: 48,
           alignItems: 'center',
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'translateY(0)' : 'translateY(32px)',
+          transition: 'opacity 0.7s ease, transform 0.7s ease',
         }}
         className="case-grid"
       >
@@ -79,13 +89,7 @@ export default function CaseStudy() {
         </div>
 
         {/* Right — 2x2 stats */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 12,
-          }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
           {stats.map((s) => (
             <div
               key={s.value}

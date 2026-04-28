@@ -1,8 +1,11 @@
 'use client'
 
-import { CALENDLY_URL, EMAIL } from '@/lib/constants'
+import { CALENDLY_URL, CONTACT_EMAIL } from '@/lib/constants'
+import { useScrollReveal } from '@/lib/useScrollReveal'
 
 export default function BottomCTA() {
+  const { ref, visible } = useScrollReveal()
+
   return (
     <section
       style={{
@@ -13,7 +16,15 @@ export default function BottomCTA() {
         textAlign: 'center',
       }}
     >
-      <div style={{ maxWidth: 700 }}>
+      <div
+        ref={ref as React.RefObject<HTMLDivElement>}
+        style={{
+          maxWidth: 700,
+          opacity: visible ? 1 : 0,
+          transform: visible ? 'translateY(0)' : 'translateY(24px)',
+          transition: 'opacity 0.65s ease, transform 0.65s ease',
+        }}
+      >
         <p
           style={{
             fontSize: 11,
@@ -46,7 +57,7 @@ export default function BottomCTA() {
             marginBottom: 40,
           }}
         >
-          Book a free 30-minute strategy call. Tell us how your business runs. We&apos;ll come back with a specific plan — no fluff, no pitch deck.
+          Book a free 30-minute strategy call. Tell us how your business runs. We will come back with a specific plan. No fluff, no pitch deck.
         </p>
         <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 12 }}>
           <a
@@ -69,7 +80,7 @@ export default function BottomCTA() {
             Schedule a strategy call
           </a>
           <a
-            href={`mailto:${EMAIL}`}
+            href={`mailto:${CONTACT_EMAIL}`}
             style={{
               fontSize: 15,
               color: 'var(--text)',

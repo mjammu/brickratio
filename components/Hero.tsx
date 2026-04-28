@@ -20,22 +20,21 @@ export default function Hero() {
   return (
     <section
       style={{
-        paddingTop: 160,
-        paddingBottom: 100,
         maxWidth: 900,
         margin: '0 auto',
-        padding: '160px 32px 100px',
+        padding: '180px 32px 80px',
+        textAlign: 'center',
       }}
     >
       <h1
         style={{
           fontFamily: 'var(--font-serif), serif',
-          fontSize: 'clamp(42px, 6vw, 72px)',
-          lineHeight: 1.1,
+          fontSize: 'clamp(32px, 4.5vw, 56px)',
+          lineHeight: 1.15,
           letterSpacing: '-0.02em',
           color: 'var(--text)',
           maxWidth: 820,
-          ...fadeStyle(0),
+          ...fadeStyle(80),
         }}
       >
         Custom AI systems that automate the work{' '}
@@ -50,7 +49,8 @@ export default function Hero() {
           maxWidth: 520,
           lineHeight: 1.65,
           marginTop: 28,
-          ...fadeStyle(120),
+          margin: '28px auto 0',
+          ...fadeStyle(180),
         }}
       >
         We build and deploy AI agents for small and mid-sized businesses. Most systems ship in under two weeks.
@@ -63,7 +63,8 @@ export default function Hero() {
           gap: 12,
           marginTop: 40,
           alignItems: 'center',
-          ...fadeStyle(240),
+          justifyContent: 'center',
+          ...fadeStyle(300),
         }}
       >
         <a

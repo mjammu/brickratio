@@ -4,6 +4,7 @@ import TrustBar from '@/components/TrustBar'
 import Agents from '@/components/Agents'
 import HowItWorks from '@/components/HowItWorks'
 import CaseStudy from '@/components/CaseStudy'
+import GetStarted from '@/components/GetStarted'
 import BottomCTA from '@/components/BottomCTA'
 import Footer from '@/components/Footer'
 
@@ -14,6 +15,7 @@ export default function Home() {
       <main>
         <Hero />
         <TrustBar />
+        <GetStarted />
         <Agents />
         <HowItWorks />
         <CaseStudy />

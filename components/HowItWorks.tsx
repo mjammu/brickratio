@@ -1,3 +1,7 @@
+'use client'
+
+import { useScrollReveal } from '@/lib/useScrollReveal'
+
 const steps = [
   {
     number: '01',
@@ -17,38 +21,55 @@ const steps = [
 ]
 
 export default function HowItWorks() {
+  const { ref: headRef, visible: headVisible } = useScrollReveal()
+  const { ref: gridRef, visible: gridVisible } = useScrollReveal(0.1)
+
   return (
     <section style={{ padding: '100px 32px', maxWidth: 1100, margin: '0 auto' }}>
-      <p
+      <div
+        ref={headRef as React.RefObject<HTMLDivElement>}
         style={{
-          fontSize: 11,
-          fontWeight: 700,
-          letterSpacing: '0.12em',
-          textTransform: 'uppercase',
-          color: 'var(--muted)',
-          marginBottom: 16,
+          textAlign: 'center',
+          opacity: headVisible ? 1 : 0,
+          transform: headVisible ? 'translateY(0)' : 'translateY(24px)',
+          transition: 'opacity 0.6s ease, transform 0.6s ease',
         }}
       >
-        How it works
-      </p>
-      <h2
-        style={{
-          fontFamily: 'var(--font-serif), serif',
-          fontSize: 'clamp(32px, 4vw, 48px)',
-          letterSpacing: '-0.02em',
-          lineHeight: 1.15,
-          color: 'var(--text)',
-          marginBottom: 48,
-        }}
-      >
-        From first call to working system <em>in under two weeks.</em>
-      </h2>
+        <p
+          style={{
+            fontSize: 11,
+            fontWeight: 700,
+            letterSpacing: '0.12em',
+            textTransform: 'uppercase',
+            color: 'var(--muted)',
+            marginBottom: 16,
+          }}
+        >
+          How it works
+        </p>
+        <h2
+          style={{
+            fontFamily: 'var(--font-serif), serif',
+            fontSize: 'clamp(32px, 4vw, 48px)',
+            letterSpacing: '-0.02em',
+            lineHeight: 1.15,
+            color: 'var(--text)',
+            marginBottom: 48,
+          }}
+        >
+          From first call to working system <em>in under two weeks.</em>
+        </h2>
+      </div>
 
       <div
+        ref={gridRef as React.RefObject<HTMLDivElement>}
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
           gap: 2,
+          opacity: gridVisible ? 1 : 0,
+          transform: gridVisible ? 'translateY(0)' : 'translateY(32px)',
+          transition: 'opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s',
         }}
         className="hiw-grid"
       >
