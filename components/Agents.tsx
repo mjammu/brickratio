@@ -7,55 +7,63 @@ import { useScrollReveal } from '@/lib/useScrollReveal'
 const agents = [
   {
     name: 'Company Brain',
-    tagline: 'Unified company knowledge',
+    subtitle: 'Unified company knowledge',
+    tagline: 'A searchable memory layer across the tools and data your company already runs on.',
     h3: 'Company Brain',
     description:
-      'A searchable memory layer built across the tools and data your company already runs on. Your team asks questions and gets answers with full context, instantly.',
+      'We connect your meetings, docs, email, Slack, and CRM into one place your team can actually search. Ask a question from Slack and get a real answer with the context behind it.',
     bullets: [
-      'Connects meetings, docs, email, Slack, CRM, and more into one searchable layer',
-      'Custom connectors for internal systems: SQL, data warehouses, internal APIs',
-      'Answers cite back to original sources so nothing gets lost in translation',
-      'New team members get up to speed in days, not months',
+      'Works with the tools you already use: Notion, Drive, Gmail, Slack, HubSpot, Salesforce, and more',
+      'Custom connectors for internal systems like SQL databases, Snowflake, or internal APIs',
+      'Every answer links back to the original source so nothing gets lost',
+      'Entities like clients, deals, and projects are tagged automatically',
     ],
+    bestFor: 'Agencies and operations-heavy teams where knowledge is scattered across tools and people.',
   },
   {
     name: 'SEO Agent',
-    tagline: 'Organic content at scale',
+    subtitle: 'Organic content at scale',
+    tagline: 'Research, write, and publish SEO content on a steady cadence without a content team.',
     h3: 'SEO Agent',
     description:
-      'Research, write, and publish SEO content on a steady cadence without a content team. Built around your target keywords, voice, and publishing workflow.',
+      'We handle keyword research, write posts in your voice, and publish on a schedule you set. Consistent organic growth without hiring writers or managing a content calendar.',
     bullets: [
-      'Automated keyword research tied to your ICP and competitive gaps',
-      'Drafts optimized articles at scale, reviewed before they go live',
-      'Publishes on a consistent schedule to build long-term organic traffic',
-      'Tracks rankings and adjusts content strategy based on what performs',
+      'Keyword and topic research matched to your audience',
+      'Content written in your voice and reviewed before it goes live',
+      'Publishes on a cadence that works for your team',
+      'Covers both traditional SEO and AI search (ChatGPT, Perplexity, Claude)',
     ],
+    bestFor: 'SaaS companies and service businesses that want steady organic growth without a full content team.',
   },
   {
     name: 'Lead Agent',
-    tagline: 'Daily qualified prospects',
+    subtitle: 'Daily qualified prospects',
+    tagline: 'A daily digest of qualified prospects, researched for your ideal customer.',
     h3: 'Lead Agent',
     description:
-      'A daily digest of qualified prospects, researched and scored for your ideal customer profile. Delivered to your inbox or CRM before your team starts their day.',
+      'We define your ideal-customer signals once. Every morning the agent searches across LinkedIn, Crunchbase, Apollo, and news sources and delivers a shortlist with full context.',
     bullets: [
-      'Pulls from live signals: job postings, funding, news, hiring patterns',
-      'Scores and filters against your ICP criteria automatically',
-      'Outputs to Slack, email digest, or directly into your CRM',
-      'Zero manual research. Your team shows up with a prioritized list',
+      'Custom signals like funding rounds, new hires, or job postings',
+      'Daily research across Crunchbase, Apollo, and news APIs',
+      'Contact enrichment with decision-maker titles and emails',
+      'Delivered to Notion, Slack, or straight into your CRM',
     ],
+    bestFor: 'Sales teams and founders who want to replace manual prospecting with a morning digest.',
   },
   {
     name: 'Custom Build',
-    tagline: 'Purpose-built for your workflow',
+    subtitle: 'Purpose-built for your workflow',
+    tagline: 'A purpose-built AI system for the workflow no off-the-shelf tool can handle.',
     h3: 'Custom Build',
     description:
-      'A purpose-built AI system for the workflow no off-the-shelf tool can handle. We scope it with you, build it fast, and stay on for improvements.',
+      'Sometimes the right agent does not exist yet. We scope your highest-value workflow, build it on your existing stack, and ship it in 1 to 2 weeks.',
     bullets: [
-      'Works from your existing stack, no rip-and-replace required',
-      'Built using battle-tested agent frameworks, not experimental prototypes',
-      'Delivered with documentation so your team can own it long-term',
-      'Ongoing support included for the first 30 days post-launch',
+      'Discovery call to scope the workflow and define what success looks like',
+      'Built on your existing tools: Notion, Airtable, Slack, your CRM',
+      'Trained on your data so output is accurate and context-aware',
+      'Handoff training so your team can own and extend it',
     ],
+    bestFor: 'Businesses with a specific operational problem that does not fit a standard template.',
   },
 ]
 
@@ -182,7 +190,7 @@ export default function Agents() {
               }}
             >
               <div style={{ fontSize: 14, fontWeight: 700, color: 'var(--text)' }}>{a.name}</div>
-              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 3 }}>{a.tagline}</div>
+              <div style={{ fontSize: 12, color: 'var(--muted)', marginTop: 3 }}>{a.subtitle}</div>
             </button>
           ))}
         </div>
@@ -194,7 +202,7 @@ export default function Agents() {
               fontFamily: 'var(--font-serif), serif',
               fontSize: 28,
               color: 'var(--text)',
-              marginBottom: 16,
+              marginBottom: 10,
             }}
           >
             {agent.h3}
@@ -202,9 +210,20 @@ export default function Agents() {
           <p
             style={{
               fontSize: 15,
+              fontWeight: 500,
+              color: 'var(--muted)',
+              marginBottom: 16,
+              lineHeight: 1.5,
+            }}
+          >
+            {agent.tagline}
+          </p>
+          <p
+            style={{
+              fontSize: 15,
               color: 'var(--muted)',
               lineHeight: 1.7,
-              maxWidth: 500,
+              maxWidth: 540,
               marginBottom: 24,
             }}
           >
@@ -216,8 +235,8 @@ export default function Agents() {
               padding: 0,
               display: 'flex',
               flexDirection: 'column',
-              gap: 10,
-              marginBottom: 32,
+              gap: 12,
+              marginBottom: 24,
             }}
           >
             {agent.bullets.map((b) => (
@@ -229,42 +248,69 @@ export default function Agents() {
                   gap: 10,
                   fontSize: 14,
                   color: 'var(--text)',
-                  lineHeight: 1.5,
+                  lineHeight: 1.55,
                 }}
               >
-                <span
-                  style={{
-                    width: 5,
-                    height: 5,
-                    borderRadius: '50%',
-                    background: 'var(--text)',
-                    marginTop: 7,
-                    flexShrink: 0,
-                  }}
-                />
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  style={{ marginTop: 2, flexShrink: 0 }}
+                >
+                  <path
+                    d="M3 8l3.5 3.5L13 4.5"
+                    stroke="var(--text)"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
                 {b}
               </li>
             ))}
           </ul>
+          <div style={{ marginBottom: 28 }}>
+            <p
+              style={{
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                textTransform: 'uppercase',
+                color: 'var(--muted)',
+                marginBottom: 6,
+              }}
+            >
+              Best for
+            </p>
+            <p style={{ fontSize: 14, color: 'var(--muted)', lineHeight: 1.6 }}>
+              {agent.bestFor}
+            </p>
+          </div>
           <a
             href={CALENDLY_URL}
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              display: 'inline-block',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 8,
               background: 'var(--text)',
               color: 'var(--bg)',
-              padding: '10px 20px',
-              borderRadius: 8,
+              padding: '12px 24px',
+              borderRadius: 10,
               fontSize: 14,
               fontWeight: 500,
               textDecoration: 'none',
               transition: 'opacity 0.2s',
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.82')}
             onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
           >
-            Schedule a call →
+            Schedule a free strategy call
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="var(--bg)" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </a>
         </div>
       </div>

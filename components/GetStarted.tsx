@@ -34,7 +34,7 @@ const options = [
       'Written deliverable your team can act on immediately',
     ],
     cta: 'Learn about the audit',
-    ctaHref: `mailto:hello@brickratio.ai`,
+    ctaHref: '/solutions/ai-readiness-audit',
     ctaExternal: false,
     ctaPrimary: false,
   },

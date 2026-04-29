@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { CALENDLY_URL } from '@/lib/constants'
 
 const solutions = [
+  { name: 'AI Strategy Call', tagline: 'Free · 30 min', href: '/solutions/ai-strategy-call' },
+  { name: 'AI Readiness Audit', tagline: 'Written roadmap · 1 week', href: '/solutions/ai-readiness-audit' },
   { name: 'Company Brain', tagline: 'Unified company knowledge', href: '#agents' },
   { name: 'SEO Agent', tagline: 'Organic content at scale', href: '#agents' },
   { name: 'Lead Agent', tagline: 'Daily qualified prospects', href: '#agents' },
@@ -98,14 +100,18 @@ export default function Nav() {
                   top: '100%',
                   left: '50%',
                   transform: 'translateX(-50%)',
-                  marginTop: 10,
+                  paddingTop: 10,
+                  zIndex: 200,
+                  minWidth: 240,
+                }}
+              >
+              <div
+                style={{
                   background: 'white',
                   border: '1px solid var(--border)',
                   borderRadius: 14,
                   boxShadow: '0 8px 32px rgba(0,0,0,0.08)',
-                  minWidth: 240,
                   padding: 8,
-                  zIndex: 200,
                 }}
               >
                 {solutions.map((s) => (
@@ -128,13 +134,14 @@ export default function Nav() {
                   </Link>
                 ))}
               </div>
+              </div>
             )}
           </div>
 
           <Link href="#" style={{ fontSize: 14, color: 'var(--text)', textDecoration: 'none', opacity: 0.7 }}>
             Agencies
           </Link>
-          <Link href="#" style={{ fontSize: 14, color: 'var(--text)', textDecoration: 'none', opacity: 0.7 }}>
+          <Link href="/resources" style={{ fontSize: 14, color: 'var(--text)', textDecoration: 'none', opacity: 0.7 }}>
             Resources
           </Link>
         </div>

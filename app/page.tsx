@@ -5,6 +5,7 @@ import Agents from '@/components/Agents'
 import HowItWorks from '@/components/HowItWorks'
 import CaseStudy from '@/components/CaseStudy'
 import GetStarted from '@/components/GetStarted'
+import FounderNote from '@/components/FounderNote'
 import BottomCTA from '@/components/BottomCTA'
 import Footer from '@/components/Footer'
 
@@ -19,6 +20,7 @@ export default function Home() {
         <Agents />
         <HowItWorks />
         <CaseStudy />
+        <FounderNote />
         <BottomCTA />
       </main>
       <Footer />

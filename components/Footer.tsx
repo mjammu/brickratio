@@ -33,7 +33,7 @@ export default function Footer() {
           {[
             { label: 'Solutions', href: '#agents' },
             { label: 'Agencies', href: '#' },
-            { label: 'Resources', href: '#' },
+            { label: 'Resources', href: '/resources' },
             { label: 'Contact', href: `mailto:${EMAIL}` },
           ].map((l) => (
             <a
