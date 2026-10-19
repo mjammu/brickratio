@@ -4,7 +4,6 @@ import { CONTACT_EMAIL } from '@/lib/constants'
 const links = [
   { label: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
   { label: 'Privacy', href: '/privacy' },
-  { label: 'Custom AI systems for teams', href: '/' },
 ]
 
 export default function OMFooter() {
