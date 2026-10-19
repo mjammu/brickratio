@@ -1,47 +1,45 @@
 # RULES.md — Brick Ratio (read before every change)
-# For deeper context on brand, copy, or new pages → read BRAND.md instead.
+# Everyday edit rules. Deeper topics live in docs/ (see the routing table in CLAUDE.md).
 
-## PALETTE
---bg:#faf7f2 --bg-card:#f4f0e8 --bg-hover:#ede8df
---text:#1c1410 --muted:#8c7b6e --border:#ddd5c8
-No dark mode. No accent colors. No new colors.
-
-## FONTS
-Headlines: Instrument Serif (next/font/google, variable --font-serif)
-Body/UI: Inter (next/font/google, variable --font-sans)
-No other fonts. Never use <link> tags for fonts.
-
-## CONSTANTS (always import, never hardcode)
-import { CALENDLY_URL, EMAIL, SITE_URL } from '@/lib/constants'
+## OFFER (don't change without Mahesh)
+Name: "Owner's Manual Method" (the deliverable is the "Owner's Manual")
+For: solo owners of service businesses, non-technical
+Plans: Starter $37 · Pro $197 founder price · Custom Build $997 by application
+$67 Live Group Setup add-on = Stripe checkout only, never on the page
+No Pro duration on the page
 
 ## COPY RULES
-- Outcomes over features ("40h saved" not "automated parsing")
-- Plain language — no buzzwords
-- Headline italic fade: wrap key phrase in <em> (40–45% opacity, italic)
-- NEVER use: leverage, synergy, cutting-edge, next-generation, harness the power of AI
+- Headlines: questions or calm statements. NO commands, NO imperative tails, never judge the reader
+- Italic fade on the emotional phrase: <em className="om-em">
+- No em dashes (—) in visible copy · no exclamation points · plain language · outcomes over features
+- NEVER: leverage, synergy, cutting-edge, next-generation, harness the power of AI
+- No period after "Brick Ratio" in the logo
 
-## BUTTONS
-Primary: --text bg / --bg text / 12px 24px / 10px radius / hover 82% opacity
-Ghost: text only, --muted, underline or arrow on hover
-Nav CTA: same primary, smaller — 8px 18px / 8px radius
+## PALETTE (app/globals.css)
+--bg:#faf7f2 --bg-card:#f4f0e8 --bg-hover:#ede8df --text:#1c1410 --muted:#8c7b6e --border:#ddd5c8
+Body/secondary text: var(--om-ink-2) (68% ink, passes AA). --muted = decorative only.
+No dark mode. No new colors. Only accent = clay #B4532A inside the synapse brain (don't touch it).
 
-## SPACING
-Section padding: 100px vertical (mobile: 80px) / horizontal: 40px (mobile: 20px)
-Max widths: sections 1100px / hero 900px / centered CTAs 700px
+## FONTS
+Headlines: Instrument Serif (--font-serif) · Body/UI: Inter (--font-sans) · next/font/google only
 
-## BORDERS & RADIUS
-Always 1px --border. Never thicker.
-Cards: 20px / Dropdowns: 14px / Tabs: 10px / Buttons: 8–10px
+## CONSTANTS (always import, never hardcode)
+import { CALENDLY_URL, CONTACT_EMAIL, SITE_URL, STARTER_KIT_URL, PRO_URL, CUSTOM_BUILD_URL } from '@/lib/constants'
 
-## PAGE SECTION ORDER (do not reorder)
-Nav → Hero → TrustBar → Agents → HowItWorks → CaseStudy → BottomCTA → Footer
+## PAGE
+Section order: Nav → Hero → Sound familiar? → How it works → Plans → Note from Mahesh → FAQ → Final CTA → Footer
+(File for each section: CLAUDE.md file map.)
 
-## 4 AGENTS (do not rename)
-Company Brain · SEO Agent · Lead Agent · Custom Build
+## STYLING GOTCHAS
+- `* { margin: 0 }` in globals.css beats Tailwind margins → use inline margins (Tailwind widths OK)
+- Inline style={{}} + small <style> media blocks at 768px (repo idiom)
+- Buttons: om-btn om-btn--primary|secondary, 44px min height, hover opacity 0.82
+- Borders always 1px var(--border) · radius: cards 20, chips 100
+- Max 2 eyebrow labels on the page · Reveal.tsx is visible by default
+- Hero CTA must stay above the fold at 1440×900 and 390×844
+- synapse-brain.tsx: never edit internals or colors
 
-## DO NOTS
-- No stock images / no hero images / no icon libraries (SVG inline only)
-- No animations heavier than fadeUp or opacity transition
-- No new fonts, colors, or dark mode
-- No v2 pages (Agencies, Resources, individual solution pages) until instructed
-- No hardcoded URLs — always use constants
+## WORKFLOW
+- Mahesh previews at localhost:3000 first; commit/push only when asked
+- Push to main = Vercel auto-deploys brickratio.ai
+- Never ask for the Stripe secret key; use `stripe login` (device approval)

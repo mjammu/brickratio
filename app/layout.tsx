@@ -15,21 +15,21 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'Brick Ratio — Custom AI Systems',
+  title: "Brick Ratio | The Owner's Manual Method",
   description:
-    'We build and deploy AI agents for small and mid-sized businesses. Custom AI systems that automate the work slowing you down.',
+    "The Owner's Manual Method gets your business into words so AI can work from it. For solo owners of service businesses.",
   metadataBase: new URL('https://brickratio.ai'),
   openGraph: {
-    title: 'Brick Ratio — Custom AI Systems',
-    description: 'Custom AI systems that automate the work slowing you down.',
+    title: "Brick Ratio | The Owner's Manual Method",
+    description: 'Does your whole business run through your brain?',
     url: 'https://brickratio.ai',
     siteName: 'Brick Ratio',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Brick Ratio — Custom AI Systems',
-    description: 'Custom AI systems that automate the work slowing you down.',
+    title: "Brick Ratio | The Owner's Manual Method",
+    description: 'Does your whole business run through your brain?',
   },
 }
 
