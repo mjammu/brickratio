@@ -94,7 +94,7 @@ export default function FounderNote() {
           }}
         >
           <Image
-            src="/mahesh.jpg"
+            src="/mahesh.png"
             alt="Mahesh"
             width={120}
             height={120}
